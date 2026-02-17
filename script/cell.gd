@@ -1,5 +1,11 @@
+class_name Cell
 extends Button
 
+
+@export
+var row:int
+@export 
+var col:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +17,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-
-
-func _on_pressed() -> void:
-	print("_on_pressed")
+func _pressed() -> void:
+	prints("_pressed",row,col)

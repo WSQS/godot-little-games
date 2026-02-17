@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqwwykyon1lbk"]
 
 [ext_resource type="PackedScene" uid="uid://dkh0e482cnitk" path="res://scene/board.tscn" id="2_v0l8b"]
+[ext_resource type="Script" uid="uid://b8cd12vpgx4nh" path="res://script/board.gd" id="2_wp4xf"]
 
 [node name="Main" type="Control" unique_id=1397094361]
 layout_direction = 1
@@ -21,3 +22,4 @@ grow_vertical = 2
 
 [node name="Board" parent="AspectRatioContainer" unique_id=602309187 instance=ExtResource("2_v0l8b")]
 layout_mode = 2
+script = ExtResource("2_wp4xf")

@@ -17,5 +17,3 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_oou56")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
