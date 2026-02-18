@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dkh0e482cnitk" path="res://games/tic-tac-toe/scene/board.tscn" id="2_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://ctq0qrxx1umbd" path="res://games/tic-tac-toe/scene/cell.tscn" id="3_l2kmv"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_wp4xf"]
-
 [node name="Main" type="Control" unique_id=1397094361]
 layout_direction = 1
 layout_mode = 3
@@ -24,14 +22,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Sign" type="Label" parent="VBoxContainer" unique_id=40769928]
+[node name="Sign" type="Label" parent="VBoxContainer" unique_id=1788418320]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-label_settings = SubResource("LabelSettings_wp4xf")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_wp4xf")
+metadata/_custom_type_script = "uid://b833sxenc5577"
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer" unique_id=1985735642]
 layout_mode = 2
