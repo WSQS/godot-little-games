@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqwwykyon1lbk"]
 
+[ext_resource type="Script" uid="uid://b6fpel8fkt24q" path="res://script/sign.gd" id="1_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://dkh0e482cnitk" path="res://scene/board.tscn" id="2_v0l8b"]
 [ext_resource type="Script" uid="uid://b8cd12vpgx4nh" path="res://script/board.gd" id="2_wp4xf"]
 
@@ -12,6 +13,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Sign" type="Label" parent="." unique_id=40769928]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_wp4xf")
+
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1985735642]
 layout_mode = 1
 anchors_preset = 15
@@ -23,3 +30,5 @@ grow_vertical = 2
 [node name="Board" parent="AspectRatioContainer" unique_id=602309187 instance=ExtResource("2_v0l8b")]
 layout_mode = 2
 script = ExtResource("2_wp4xf")
+
+[connection signal="on_side" from="AspectRatioContainer/Board" to="Sign" method="_on_board_on_side"]
