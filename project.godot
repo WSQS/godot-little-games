@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="tic-tac-toe"
-run/main_scene="uid://bqwwykyon1lbk"
+run/main_scene="uid://clcx80naalylu"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+FontScaleServer="*uid://bnssth0ultagp"
 
 [physics]
 
