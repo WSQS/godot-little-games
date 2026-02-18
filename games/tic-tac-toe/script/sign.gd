@@ -4,7 +4,8 @@ extends Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label_settings = LabelSettings.new()
-	label_settings.font_size = int(get_viewport_rect().size.y/10)
+	label_settings.font_size = int(size.y*0.6)
+	resized.connect(on_resized)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,3 +32,6 @@ func _on_board_on_finish(winner: GameEnum.BoardSide) -> void:
 	else:
 		text = "draw"
 		label_settings.font_color = Color(1,1,1,0.6)
+
+func on_resized():
+	label_settings.font_size = int(size.y*0.6)
