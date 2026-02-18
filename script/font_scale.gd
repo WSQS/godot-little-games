@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 
 func setup_font_size():
 	base_theme.default_font_size = get_viewport().get_visible_rect().size.y/20
+	base_theme.set_type_variation("title","Control")
+	base_theme.set_font_size("font_size","title",get_viewport().get_visible_rect().size.y/10)
+	pass
