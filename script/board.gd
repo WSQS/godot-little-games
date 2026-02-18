@@ -42,7 +42,7 @@ func process_cell_trugger(cell:Cell,id:int):
 	check_board(id)
 
 func check_board(id: int):
-	var lines = [[0,1,2]]
+	var lines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 	var check_line= []
 	for line in lines:
 		if id in line:
@@ -51,6 +51,8 @@ func check_board(id: int):
 	for line in check_line:
 		if cells[line[0]].side == base_side and cells[line[1]].side == base_side and cells[line[2]].side == base_side:
 			emit_signal("on_finish",base_side)
+			for cell in cells:
+				cell.disabled = true
 			return
 	var full = true
 	for cell in cells:
