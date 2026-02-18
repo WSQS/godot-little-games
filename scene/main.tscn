@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://clcx80naalylu"]
 
 [ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://c37o2tr358ec0" path="res://script/start_button.gd" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://d3u2q1vd34a6q" path="res://scene/game_list.tscn" id="3_wp4xf"]
 
 [node name="Main" type="Control" unique_id=1204586401]
 layout_mode = 3
@@ -35,11 +37,13 @@ text = "Sophomore's Games"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=522751948]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=522751948]
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"title"
 text = "Games"
+script = ExtResource("2_v0l8b")
+game = ExtResource("3_wp4xf")
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=645213759]
 layout_mode = 2
