@@ -3,8 +3,6 @@ extends GridContainer
 var cells:Array[Cell]
 var side:GameEnum.BoardSide = GameEnum.BoardSide.RED
 
-@onready var label: Label = $"../../Label"
-
 signal on_side(current_side: GameEnum.BoardSide)
 signal on_finish(winner: GameEnum.BoardSide)
 
