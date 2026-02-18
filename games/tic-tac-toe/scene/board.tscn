@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkh0e482cnitk"]
 
-[ext_resource type="Script" uid="uid://b8cd12vpgx4nh" path="res://script/board.gd" id="1_b3264"]
+[ext_resource type="Script" uid="uid://b8cd12vpgx4nh" path="res://games/tic-tac-toe/script/board.gd" id="1_b3264"]
 
 [node name="Board" type="GridContainer" unique_id=602309187]
 layout_direction = 1

@@ -6,9 +6,11 @@ var side:GameEnum.BoardSide = GameEnum.BoardSide.RED
 signal on_side(current_side: GameEnum.BoardSide)
 signal on_finish(winner: GameEnum.BoardSide)
 
+@export
+var cell: PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var cell :PackedScene = load("res://scene/cell.tscn")
 	emit_signal("on_side",side)
 	if cell is PackedScene and cell.can_instantiate():
 		for i in range(0,9):

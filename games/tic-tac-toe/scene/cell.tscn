@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctq0qrxx1umbd"]
 
-[ext_resource type="Script" uid="uid://ckvfpe71rq1gg" path="res://script/cell.gd" id="1_oou56"]
+[ext_resource type="Script" uid="uid://ckvfpe71rq1gg" path="res://games/tic-tac-toe/script/cell.gd" id="1_oou56"]
 
 [node name="Cell" type="Button" unique_id=1584862420]
 anchors_preset = 8

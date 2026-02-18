@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqwwykyon1lbk"]
 
-[ext_resource type="Script" uid="uid://b6fpel8fkt24q" path="res://script/sign.gd" id="1_wp4xf"]
-[ext_resource type="PackedScene" uid="uid://dkh0e482cnitk" path="res://scene/board.tscn" id="2_v0l8b"]
-[ext_resource type="Script" uid="uid://b8cd12vpgx4nh" path="res://script/board.gd" id="2_wp4xf"]
+[ext_resource type="Script" uid="uid://b6fpel8fkt24q" path="res://games/tic-tac-toe/script/sign.gd" id="1_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://dkh0e482cnitk" path="res://games/tic-tac-toe/scene/board.tscn" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://ctq0qrxx1umbd" path="res://games/tic-tac-toe/scene/cell.tscn" id="3_l2kmv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wp4xf"]
 
@@ -39,7 +39,7 @@ size_flags_vertical = 3
 
 [node name="Board" parent="VBoxContainer/AspectRatioContainer" unique_id=602309187 instance=ExtResource("2_v0l8b")]
 layout_mode = 2
-script = ExtResource("2_wp4xf")
+cell = ExtResource("3_l2kmv")
 
 [connection signal="on_finish" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_finish"]
 [connection signal="on_side" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_side"]
