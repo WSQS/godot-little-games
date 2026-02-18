@@ -4,6 +4,8 @@ extends Button
 
 @export
 var id:int
+@export
+var side:GameEnum.BoardSide = -1
 
 signal cell_trigger(cell:Cell,id:int)
 

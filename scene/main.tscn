@@ -41,4 +41,5 @@ size_flags_vertical = 3
 layout_mode = 2
 script = ExtResource("2_wp4xf")
 
+[connection signal="on_finish" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_finish"]
 [connection signal="on_side" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_side"]
