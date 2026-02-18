@@ -3,9 +3,9 @@ extends Button
 
 
 @export
-var row:int
-@export 
-var col:int
+var id:int
+
+signal cell_trigger(cell:Cell,id:int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,4 +18,4 @@ func _process(delta: float) -> void:
 
 
 func _pressed() -> void:
-	prints("_pressed",row,col)
+	emit_signal("cell_trigger",self,id)
