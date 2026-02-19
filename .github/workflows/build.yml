@@ -41,6 +41,12 @@ jobs:
           # 输出打包成 zip（和 README 示例一致）
           archive_output: true
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-build-${{ github.run_number }}
+          path: ${{ steps.export.outputs.archive_directory }}/*
+
     #   - name: Create GitHub Release
     #     uses: ncipollo/release-action@v1.18.0
     #     with:
