@@ -1,0 +1,49 @@
+name: Export Godot Game
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+  workflow_dispatch:
+
+jobs:
+  export_game:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: Export Game
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Android exports: set up Android SDK before running godot-export
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Export game
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          # Godot 4.6.1 Linux editor (headless not required by this action, but it downloads the Linux editor zip)
+          godot_executable_download_url: https://downloads.godotengine.org/?flavor=stable&platform=linux.64&slug=linux.x86_64.zip&version=4.6.1
+          # Export templates 4.6.1
+          godot_export_templates_download_url: https://downloads.godotengine.org/?flavor=stable&platform=templates&slug=export_templates.tpz&version=4.6.1
+
+          # project.godot 所在目录（根目录就 ./）
+          relative_project_path: ./
+
+          # 只导出这两个 preset（名字必须与你 Godot 里 Export Presets 完全一致）
+        #   presets_to_export: Windows Desktop, Android
+
+          # 输出打包成 zip（和 README 示例一致）
+          archive_output: true
+
+    #   - name: Create GitHub Release
+    #     uses: ncipollo/release-action@v1.18.0
+    #     with:
+    #       token: ${{ secrets.GITHUB_TOKEN }}
+    #       generateReleaseNotes: true
+    #       tag: ${{ github.ref_name }}
+    #       artifacts: ${{ steps.export.outputs.archive_directory }}/*
