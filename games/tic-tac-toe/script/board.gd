@@ -33,7 +33,7 @@ func process_cell_trugger(id:int):
 	else:
 		side = GameEnum.BoardSide.RED
 	
-	emit_signal("on_side",side)
+	on_side.emit.call_deferred(side)
 	check_board(id)
 
 func check_board(id: int):

@@ -1,5 +1,6 @@
 extends Label
 
+var finished:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,8 @@ func _process(delta: float) -> void:
 
 
 func _on_board_on_side(current_side: GameEnum.BoardSide) -> void:
+	if finished:
+		return
 	if current_side == GameEnum.BoardSide.RED :
 		text = "red side"
 		add_theme_color_override("font_color",Color(1,0,0,0.6))
@@ -21,6 +24,9 @@ func _on_board_on_side(current_side: GameEnum.BoardSide) -> void:
 
 
 func _on_board_on_finish(winner: GameEnum.BoardSide) -> void:
+	if finished:
+		return
+	finished = true
 	if winner == GameEnum.BoardSide.RED :
 		text = "red win"
 		add_theme_color_override("font_color",Color(1,0,0,0.6))
