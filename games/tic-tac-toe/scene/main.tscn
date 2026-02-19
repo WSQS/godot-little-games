@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b6fpel8fkt24q" path="res://games/tic-tac-toe/script/sign.gd" id="1_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://dkh0e482cnitk" path="res://games/tic-tac-toe/scene/board.tscn" id="2_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://ctq0qrxx1umbd" path="res://games/tic-tac-toe/scene/cell.tscn" id="3_l2kmv"]
+[ext_resource type="Script" uid="uid://fv5ko4lp72e5" path="res://games/tic-tac-toe/script/restart_button.gd" id="5_n1m4w"]
 
 [node name="Main" type="Control" unique_id=1397094361]
 layout_direction = 1
@@ -42,5 +43,20 @@ size_flags_vertical = 3
 layout_mode = 2
 cell = ExtResource("3_l2kmv")
 
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=433714733]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer" unique_id=153336019]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("5_n1m4w")
+
 [connection signal="on_finish" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_finish"]
+[connection signal="on_finish" from="VBoxContainer/AspectRatioContainer/Board" to="CenterContainer/RestartButton" method="_on_board_on_finish"]
 [connection signal="on_side" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_side"]
