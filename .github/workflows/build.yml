@@ -36,6 +36,7 @@ jobs:
 
           # 只导出这两个 preset（名字必须与你 Godot 里 Export Presets 完全一致）
         #   presets_to_export: Windows Desktop, Android
+          export_debug: true
 
           # 输出打包成 zip（和 README 示例一致）
           archive_output: true
