@@ -7,7 +7,7 @@ var id:int
 @export
 var side:GameEnum.BoardSide = -1
 
-signal cell_trigger(cell:Cell,id:int)
+signal cell_trigger(id:int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,4 +20,14 @@ func _process(delta: float) -> void:
 
 
 func _pressed() -> void:
-	emit_signal("cell_trigger",self,id)
+	emit_signal("cell_trigger",id)
+
+func flip(flip_side:GameEnum.BoardSide):
+	side = flip_side
+	var newbox = StyleBoxFlat.new()
+	disabled = true
+	if side == GameEnum.BoardSide.RED:
+		newbox.bg_color = Color(1,0,0,0.6)
+	else:
+		newbox.bg_color = Color(0,0,1,0.6)
+	add_theme_stylebox_override("disabled",newbox)

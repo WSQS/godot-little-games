@@ -25,19 +25,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func process_cell_trugger(cell:Cell,id:int):
+func process_cell_trugger(id:int):
 	prints(id)
-	var newbox :StyleBoxFlat = StyleBoxFlat.new()
-	cell.side = side
+	cells[id].flip(side)
 	if side == GameEnum.BoardSide.RED:
-		newbox.bg_color = Color(1,0,0,0.6)
 		side = GameEnum.BoardSide.BLUE
 	else:
-		newbox.bg_color = Color(0,0,1,0.6)
 		side = GameEnum.BoardSide.RED
 	
-	cell.add_theme_stylebox_override("disabled",newbox)
-	cell.disabled = true
 	emit_signal("on_side",side)
 	check_board(id)
 
