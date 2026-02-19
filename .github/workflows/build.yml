@@ -31,14 +31,10 @@ jobs:
           # Export templates 4.6.1
           godot_export_templates_download_url: https://downloads.godotengine.org/?flavor=stable&platform=templates&slug=export_templates.tpz&version=4.6.1
 
-          # project.godot 所在目录（根目录就 ./）
           relative_project_path: ./
 
-          # 只导出这两个 preset（名字必须与你 Godot 里 Export Presets 完全一致）
-        #   presets_to_export: Windows Desktop, Android
           export_debug: true
 
-          # 输出打包成 zip（和 README 示例一致）
           archive_output: true
 
       - name: Upload artifacts
@@ -46,11 +42,3 @@ jobs:
         with:
           name: debug-build-${{ github.run_number }}
           path: ${{ steps.export.outputs.archive_directory }}/*
-
-    #   - name: Create GitHub Release
-    #     uses: ncipollo/release-action@v1.18.0
-    #     with:
-    #       token: ${{ secrets.GITHUB_TOKEN }}
-    #       generateReleaseNotes: true
-    #       tag: ${{ github.ref_name }}
-    #       artifacts: ${{ steps.export.outputs.archive_directory }}/*
