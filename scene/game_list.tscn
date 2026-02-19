@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_7t56i"]
 [ext_resource type="Script" uid="uid://ddrvxcn0a4ds1" path="res://script/game_button.gd" id="2_6d8vk"]
 [ext_resource type="PackedScene" uid="uid://bqwwykyon1lbk" path="res://games/tic-tac-toe/scene/main.tscn" id="3_tiopt"]
+[ext_resource type="PackedScene" uid="uid://5io8n4ybv11h" path="res://games/tic-tac-toe ai/scene/main.tscn" id="4_vayrg"]
 
 [node name="GameList" type="Control" unique_id=276993385]
 layout_mode = 3
@@ -13,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_7t56i")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=395619415]
 layout_mode = 1
@@ -30,3 +32,11 @@ theme = ExtResource("1_7t56i")
 text = "Tic Tac Toe"
 script = ExtResource("2_6d8vk")
 game_scene = ExtResource("3_tiopt")
+
+[node name="Game2" type="Button" parent="GridContainer" unique_id=428365079]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Tic Tac Toe AI"
+script = ExtResource("2_6d8vk")
+game_scene = ExtResource("4_vayrg")

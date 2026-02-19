@@ -11,7 +11,6 @@ var cell: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	emit_signal("on_side",side)
 	if cell is PackedScene and cell.can_instantiate():
 		for i in range(0,9):
 			var cell_node:Cell = cell.instantiate()
@@ -19,6 +18,7 @@ func _ready() -> void:
 			cell_node.cell_trigger.connect(process_cell_trugger)
 			add_child(cell_node)
 			cells.append(cell_node)
+	emit_signal("on_side",side)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,3 +55,6 @@ func check_board(id: int):
 			full = false
 	if full:
 		emit_signal("on_finish",-1)
+
+func get_cells():
+	return cells
