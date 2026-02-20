@@ -12,10 +12,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_board_on_side(current_side: GameEnum.BoardSide) -> void:
+func _on_board_on_side(current_side: TicEnum.BoardSide) -> void:
 	if finished:
 		return
-	if current_side == GameEnum.BoardSide.RED :
+	if current_side == TicEnum.BoardSide.RED :
 		text = "red side"
 		add_theme_color_override("font_color",Color(1,0,0,0.6))
 	else:
@@ -23,14 +23,14 @@ func _on_board_on_side(current_side: GameEnum.BoardSide) -> void:
 		add_theme_color_override("font_color",Color(0,0,1,0.6))
 
 
-func _on_board_on_finish(winner: GameEnum.BoardSide) -> void:
+func _on_board_on_finish(winner: TicEnum.BoardSide) -> void:
 	if finished:
 		return
 	finished = true
-	if winner == GameEnum.BoardSide.RED :
+	if winner == TicEnum.BoardSide.RED :
 		text = "red win"
 		add_theme_color_override("font_color",Color(1,0,0,0.6))
-	elif winner == GameEnum.BoardSide.BLUE:
+	elif winner == TicEnum.BoardSide.BLUE:
 		text = "blue win"
 		add_theme_color_override("font_color",Color(0,0,1,0.6))
 	else:

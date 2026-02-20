@@ -1,10 +1,10 @@
 extends GridContainer
 
 var cells:Array[Cell]
-var side:GameEnum.BoardSide = GameEnum.BoardSide.RED
+var side:TicEnum.BoardSide = TicEnum.BoardSide.RED
 
-signal on_side(current_side: GameEnum.BoardSide)
-signal on_finish(winner: GameEnum.BoardSide)
+signal on_side(current_side: TicEnum.BoardSide)
+signal on_finish(winner: TicEnum.BoardSide)
 
 @export
 var cell: PackedScene
@@ -28,10 +28,10 @@ func _process(delta: float) -> void:
 func process_cell_trugger(id:int):
 	prints(id)
 	cells[id].flip(side)
-	if side == GameEnum.BoardSide.RED:
-		side = GameEnum.BoardSide.BLUE
+	if side == TicEnum.BoardSide.RED:
+		side = TicEnum.BoardSide.BLUE
 	else:
-		side = GameEnum.BoardSide.RED
+		side = TicEnum.BoardSide.RED
 	
 	on_side.emit.call_deferred(side)
 	check_board(id)

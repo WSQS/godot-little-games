@@ -15,5 +15,5 @@ func _pressed() -> void:
 	get_tree().reload_current_scene()
 
 
-func _on_board_on_finish(winner: GameEnum.BoardSide) -> void:
+func _on_board_on_finish(winner: TicEnum.BoardSide) -> void:
 	center_container.visible = true

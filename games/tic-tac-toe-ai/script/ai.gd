@@ -11,9 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_board_on_side(current_side: GameEnum.BoardSide) -> void:
+func _on_board_on_side(current_side: TicEnum.BoardSide) -> void:
 	prints("_on_board_on_side",current_side)
-	if current_side == GameEnum.BoardSide.BLUE:
+	if current_side == TicEnum.BoardSide.BLUE:
 		return
 	var cells: Array[Cell] = get_parent().get_cells()
 	var indexs: Array[int] = []

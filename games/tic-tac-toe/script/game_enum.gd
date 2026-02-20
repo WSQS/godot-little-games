@@ -1,4 +1,4 @@
-class_name GameEnum
+class_name TicEnum
 
 enum BoardSide{
 	RED,
