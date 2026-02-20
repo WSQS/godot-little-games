@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5io8n4ybv11h"]
 
 [ext_resource type="PackedScene" uid="uid://bqwwykyon1lbk" path="res://games/tic-tac-toe/scene/main.tscn" id="1_lfdmq"]
-[ext_resource type="Script" uid="uid://c7o6wbx41vqac" path="res://games/tic-tac-toe ai/script/ai.gd" id="2_mnhwn"]
+[ext_resource type="Script" uid="uid://c7o6wbx41vqac" path="res://games/tic-tac-toe-ai/script/ai.gd" id="2_mnhwn"]
 
 [node name="Main" unique_id=1397094361 instance=ExtResource("1_lfdmq")]
 

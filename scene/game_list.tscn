@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_7t56i"]
 [ext_resource type="Script" uid="uid://ddrvxcn0a4ds1" path="res://script/game_button.gd" id="2_6d8vk"]
 [ext_resource type="PackedScene" uid="uid://bqwwykyon1lbk" path="res://games/tic-tac-toe/scene/main.tscn" id="3_tiopt"]
-[ext_resource type="PackedScene" uid="uid://5io8n4ybv11h" path="res://games/tic-tac-toe ai/scene/main.tscn" id="4_vayrg"]
+[ext_resource type="PackedScene" uid="uid://5io8n4ybv11h" path="res://games/tic-tac-toe-ai/scene/main.tscn" id="4_vayrg"]
 
 [node name="GameList" type="Control" unique_id=276993385]
 layout_mode = 3
