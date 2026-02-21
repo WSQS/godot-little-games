@@ -19,7 +19,7 @@ var n_col: int
 func _ready() -> void:
 	columns = n_col
 	if cell is PackedScene and cell.can_instantiate():
-		for i in range(0,9):
+		for i in range(0,n_row * n_col):
 			var cell_node:Cell = cell.instantiate()
 			cell_node.id = i
 			cell_node.cell_trigger.connect(process_cell_trugger)
