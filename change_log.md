@@ -8,3 +8,4 @@
 
 - basic tic tac toe game
 - random ai in tic tac toe game
+- gomoku and any other similar games
