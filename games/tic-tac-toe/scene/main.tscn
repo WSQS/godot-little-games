@@ -42,6 +42,9 @@ size_flags_vertical = 3
 [node name="Board" parent="VBoxContainer/AspectRatioContainer" unique_id=602309187 instance=ExtResource("2_v0l8b")]
 layout_mode = 2
 cell = ExtResource("3_l2kmv")
+n_row = 3
+n_col = 3
+n_win = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=433714733]
 visible = false
