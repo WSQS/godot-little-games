@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqt4ueuf1tc04"]
 
 [ext_resource type="Script" uid="uid://b187af4namvu3" path="res://games/2048/script/input_router.gd" id="1_gidvk"]
+[ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_mowq8"]
 [ext_resource type="Script" uid="uid://dd1fbo655f3k2" path="res://games/2048/script/board.gd" id="2_vgedx"]
 [ext_resource type="PackedScene" uid="uid://c57s7y6ly8uyx" path="res://games/2048/scene/block.tscn" id="3_ttkyj"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mowq8")
 
 [node name="InputRouter" type="Node" parent="." unique_id=1305291160]
 script = ExtResource("1_gidvk")
