@@ -9,8 +9,15 @@ signal on_finish(winner: TicEnum.BoardSide)
 @export
 var cell: PackedScene
 
+@export
+var n_row: int
+
+@export
+var n_col: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	columns = n_col
 	if cell is PackedScene and cell.can_instantiate():
 		for i in range(0,9):
 			var cell_node:Cell = cell.instantiate()
