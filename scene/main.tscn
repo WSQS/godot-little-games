@@ -36,6 +36,7 @@ theme_type_variation = &"title"
 text = "Sophomore's Games"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=522751948]
 layout_mode = 2
