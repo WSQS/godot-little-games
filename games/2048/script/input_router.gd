@@ -21,7 +21,7 @@ func _input(event: InputEvent) -> void:
 			position = event.position
 			return
 		var diff : Vector2 = event.position-position
-		if diff.length() < 250:
+		if diff.length() < 100:
 			return
 		if abs(diff.x) > abs(diff.y) * 2:
 			if diff.x > 0:
