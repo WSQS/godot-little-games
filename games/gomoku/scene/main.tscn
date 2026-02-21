@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bb08ewc52lk5"]
+
+[ext_resource type="PackedScene" uid="uid://bqwwykyon1lbk" path="res://games/tic-tac-toe/scene/main.tscn" id="1_px5o4"]
+
+[node name="Main" unique_id=1397094361 instance=ExtResource("1_px5o4")]
+
+[node name="Board" parent="VBoxContainer/AspectRatioContainer" parent_id_path=PackedInt32Array(1985735642) index="0" unique_id=602309187]
+n_row = 15
+n_col = 15
+n_win = 5
