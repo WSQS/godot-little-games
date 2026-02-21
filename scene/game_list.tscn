@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://d3u2q1vd34a6q"]
 
 [ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_7t56i"]
-[ext_resource type="Script" uid="uid://ddrvxcn0a4ds1" path="res://script/game_button.gd" id="2_6d8vk"]
+[ext_resource type="PackedScene" uid="uid://by8285b2ydq6k" path="res://scene/game_button.tscn" id="2_vayrg"]
 [ext_resource type="PackedScene" uid="uid://bqwwykyon1lbk" path="res://games/tic-tac-toe/scene/main.tscn" id="3_tiopt"]
 [ext_resource type="PackedScene" uid="uid://5io8n4ybv11h" path="res://games/tic-tac-toe-ai/scene/main.tscn" id="4_vayrg"]
+[ext_resource type="PackedScene" uid="uid://bb08ewc52lk5" path="res://games/gomoku/scene/main.tscn" id="5_yll1e"]
 
 [node name="GameList" type="Control" unique_id=276993385]
 layout_mode = 3
@@ -24,19 +25,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Game1" type="Button" parent="GridContainer" unique_id=113459985]
+[node name="Game1" parent="GridContainer" unique_id=136692252 instance=ExtResource("2_vayrg")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("1_7t56i")
 text = "Tic Tac Toe"
-script = ExtResource("2_6d8vk")
 game_scene = ExtResource("3_tiopt")
 
-[node name="Game2" type="Button" parent="GridContainer" unique_id=428365079]
+[node name="Game2" parent="GridContainer" unique_id=563215119 instance=ExtResource("2_vayrg")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 text = "Tic Tac Toe AI"
-script = ExtResource("2_6d8vk")
 game_scene = ExtResource("4_vayrg")
+
+[node name="Game3" parent="GridContainer" unique_id=571973384 instance=ExtResource("2_vayrg")]
+layout_mode = 2
+text = "Gomoku"
+game_scene = ExtResource("5_yll1e")

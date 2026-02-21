@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://by8285b2ydq6k"]
+
+[ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_him3e"]
+[ext_resource type="Script" uid="uid://ddrvxcn0a4ds1" path="res://script/game_button.gd" id="2_7my5y"]
+
+[node name="Game1" type="Button" unique_id=136692252]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_him3e")
+script = ExtResource("2_7my5y")
