@@ -29,6 +29,13 @@ func _process(delta: float) -> void:
 func swipe(direction: String):
 	print(direction)
 	var lines = split_line(direction)
+	var b_merge = false
+	for line in lines:
+		if can_merge(line):
+			b_merge = true
+			break
+	if not b_merge:
+		return
 	for i in range(len(lines)):
 		lines[i] = merge(lines[i])
 	write_back_lines(direction,lines)
@@ -107,3 +114,13 @@ func add_block():
 func sync():
 	for i in range(len(data)):
 		block[i].set_value(data[i])
+
+func can_merge(line:Array[int]):
+	var i :int = 1
+	while i < len(line):
+		if line[i-1] == line[i]:
+			return true
+		if line[i-1] == 0 && line[i] != 0:
+			return true
+		i = i + 1
+	return false
