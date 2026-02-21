@@ -3,6 +3,7 @@
 ## todo list
 
 - state machine for board, such as not accept input after game finished
+- add ai for gomuku, such as [Gomuku Example](https://github.com/HenryRLee/ClassicGames/tree/master/Gomoku)
 
 ## 0.0.1
 
