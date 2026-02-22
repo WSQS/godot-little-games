@@ -106,7 +106,7 @@ func merge(line:Array[int]):
 	
 	while i < len(de_empty):
 		if de_empty[i-1] == de_empty[i]:
-			score += de_empty[i]
+			score += de_empty[i] * 2
 			on_score.emit(score)
 			de_empty[i-1] *= 2
 			de_empty.remove_at(i)
