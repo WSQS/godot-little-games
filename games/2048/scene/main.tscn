@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c57s7y6ly8uyx" path="res://games/2048/scene/block.tscn" id="3_ttkyj"]
 [ext_resource type="Script" uid="uid://o2ueyr5wl5hg" path="res://games/2048/script/restart_button.gd" id="6_la7ei"]
 
-[node name="Mian" type="Control" unique_id=1486201254]
+[node name="Main" type="Control" unique_id=1486201254]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
