@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b187af4namvu3" path="res://games/2048/script/input_router.gd" id="1_gidvk"]
 [ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_mowq8"]
 [ext_resource type="Script" uid="uid://dd1fbo655f3k2" path="res://games/2048/script/board.gd" id="2_vgedx"]
+[ext_resource type="Script" uid="uid://bw27j1fycik7y" path="res://games/2048/script/sign.gd" id="3_2oon2"]
 [ext_resource type="PackedScene" uid="uid://c57s7y6ly8uyx" path="res://games/2048/scene/block.tscn" id="3_ttkyj"]
 
 [node name="Mian" type="Control" unique_id=1486201254]
@@ -33,6 +34,7 @@ size_flags_stretch_ratio = 0.2
 theme_type_variation = &"title"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("3_2oon2")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer" unique_id=352631602]
 layout_mode = 2
@@ -43,3 +45,5 @@ layout_mode = 2
 columns = 4
 script = ExtResource("2_vgedx")
 scene_block = ExtResource("3_ttkyj")
+
+[connection signal="on_score" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_score"]

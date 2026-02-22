@@ -8,6 +8,10 @@ var board_size:int =4
 var data:Array[int] = []
 var block: Array = []
 
+var score: int = 0
+
+signal on_score(score:int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(16):
@@ -20,6 +24,8 @@ func _ready() -> void:
 		add_block()
 	
 	sync()
+	
+	on_score.emit(score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -97,6 +103,8 @@ func merge(line:Array[int]):
 	
 	while i < len(de_empty):
 		if de_empty[i-1] == de_empty[i]:
+			score += de_empty[i]
+			on_score.emit(score)
 			de_empty[i-1] *= 2
 			de_empty.remove_at(i)
 		i = i + 1
