@@ -129,7 +129,7 @@ func sync():
 func can_merge(line:Array[int]):
 	var i :int = 1
 	while i < len(line):
-		if line[i-1] == line[i]:
+		if line[i-1] == line[i] and line[i]!=0:
 			return true
 		if line[i-1] == 0 && line[i] != 0:
 			return true
