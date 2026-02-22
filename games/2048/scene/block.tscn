@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c57s7y6ly8uyx"]
+
+[ext_resource type="Script" uid="uid://c4k725casg0m8" path="res://games/2048/script/block.gd" id="1_rfby7"]
+
+[node name="Block" type="ColorRect" unique_id=1160826091]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rfby7")
+
+[node name="Label" type="Label" parent="." unique_id=816983465]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

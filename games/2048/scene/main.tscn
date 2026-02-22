@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bqt4ueuf1tc04"]
+
+[ext_resource type="Script" uid="uid://b187af4namvu3" path="res://games/2048/script/input_router.gd" id="1_gidvk"]
+[ext_resource type="Theme" uid="uid://4fven878fx2l" path="res://theme/base_theme.tres" id="1_mowq8"]
+[ext_resource type="Script" uid="uid://dd1fbo655f3k2" path="res://games/2048/script/board.gd" id="2_vgedx"]
+[ext_resource type="Script" uid="uid://bw27j1fycik7y" path="res://games/2048/script/sign.gd" id="3_2oon2"]
+[ext_resource type="PackedScene" uid="uid://c57s7y6ly8uyx" path="res://games/2048/scene/block.tscn" id="3_ttkyj"]
+[ext_resource type="Script" uid="uid://o2ueyr5wl5hg" path="res://games/2048/script/restart_button.gd" id="6_la7ei"]
+
+[node name="Main" type="Control" unique_id=1486201254]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mowq8")
+
+[node name="InputRouter" type="Node" parent="." unique_id=1305291160]
+script = ExtResource("1_gidvk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=155818786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Sign" type="Label" parent="VBoxContainer" unique_id=314362514]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_type_variation = &"title"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_2oon2")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer" unique_id=352631602]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Board" type="GridContainer" parent="VBoxContainer/AspectRatioContainer" unique_id=1181961986]
+layout_mode = 2
+columns = 4
+script = ExtResource("2_vgedx")
+scene_block = ExtResource("3_ttkyj")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2053076638]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer" unique_id=1919589859]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("6_la7ei")
+
+[connection signal="finished" from="VBoxContainer/AspectRatioContainer/Board" to="CenterContainer/RestartButton" method="_on_board_finished"]
+[connection signal="on_score" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_score"]
