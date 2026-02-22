@@ -12,6 +12,8 @@ var score: int = 0
 
 signal on_score(score:int)
 
+signal finished()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(16):
@@ -47,6 +49,7 @@ func swipe(direction: String):
 	write_back_lines(direction,lines)
 	add_block()
 	sync()
+	check_ended()
 
 func split_line(direction:String):
 	var lines: Array[Array] = []
@@ -132,3 +135,16 @@ func can_merge(line:Array[int]):
 			return true
 		i = i + 1
 	return false
+
+func check_ended():
+	var b_merge = false
+	for dir in ["left","right","up","down"]:
+		var lines = split_line(dir)
+		for line in lines:
+			if can_merge(line):
+				b_merge = true
+				break
+		if b_merge:
+			break
+	if not b_merge:
+		finished.emit()

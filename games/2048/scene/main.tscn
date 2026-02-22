@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dd1fbo655f3k2" path="res://games/2048/script/board.gd" id="2_vgedx"]
 [ext_resource type="Script" uid="uid://bw27j1fycik7y" path="res://games/2048/script/sign.gd" id="3_2oon2"]
 [ext_resource type="PackedScene" uid="uid://c57s7y6ly8uyx" path="res://games/2048/scene/block.tscn" id="3_ttkyj"]
+[ext_resource type="Script" uid="uid://o2ueyr5wl5hg" path="res://games/2048/script/restart_button.gd" id="6_la7ei"]
 
 [node name="Mian" type="Control" unique_id=1486201254]
 layout_mode = 3
@@ -46,4 +47,19 @@ columns = 4
 script = ExtResource("2_vgedx")
 scene_block = ExtResource("3_ttkyj")
 
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2053076638]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="CenterContainer" unique_id=1919589859]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("6_la7ei")
+
+[connection signal="finished" from="VBoxContainer/AspectRatioContainer/Board" to="CenterContainer/RestartButton" method="_on_board_finished"]
 [connection signal="on_score" from="VBoxContainer/AspectRatioContainer/Board" to="VBoxContainer/Sign" method="_on_board_on_score"]
