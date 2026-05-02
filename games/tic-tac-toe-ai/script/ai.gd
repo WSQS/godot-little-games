@@ -22,5 +22,5 @@ func _on_board_on_side(current_side: TicEnum.BoardSide) -> void:
 			indexs.append(i)
 	if not indexs.is_empty():
 		prints("_on_board_on_side 1")
-		get_parent().process_cell_trugger(indexs.pick_random())
+		get_parent().process_cell_trigger(indexs.pick_random())
 	pass

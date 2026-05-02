@@ -25,7 +25,7 @@ func _ready() -> void:
 		for i in range(0,n_row * n_col):
 			var cell_node:Cell = cell.instantiate()
 			cell_node.id = i
-			cell_node.cell_trigger.connect(process_cell_trugger)
+			cell_node.cell_trigger.connect(process_cell_trigger)
 			add_child(cell_node)
 			cells.append(cell_node)
 	emit_signal("on_side",side)
@@ -35,7 +35,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func process_cell_trugger(id:int):
+func process_cell_trigger(id:int):
 	prints(id)
 	cells[id].flip(side)
 	if side == TicEnum.BoardSide.RED:
