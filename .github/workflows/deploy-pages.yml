@@ -2,9 +2,9 @@ name: Deploy to Github Pages
 
 on:
     push:
-        branches: ["**"]
+        branches: ["main"]
     pull_request:
-        branches: ["**"]
+        branches: ["main"]
     workflow_dispatch:
 
 jobs:
@@ -44,6 +44,7 @@ jobs:
                   path: dist/Web
 
     deploy:
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         needs: export_web
         runs-on: ubuntu-latest
         name: Deploy to GitHub Pages
