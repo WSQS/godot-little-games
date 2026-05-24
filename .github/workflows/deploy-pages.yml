@@ -18,6 +18,10 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
+            # Android exports: set up Android SDK before running godot-export
+            - name: Set up Android SDK
+              uses: android-actions/setup-android@v3
+
             - name: Export game
               id: export
               uses: firebelley/godot-export@v7.0.0
@@ -27,7 +31,6 @@ jobs:
                   # Export templates 4.6.1
                   godot_export_templates_download_url: https://downloads.godotengine.org/?flavor=stable&platform=templates&slug=export_templates.tpz&version=4.6.1
                   relative_project_path: ./
-                  presets_to_export: Web
                   export_debug: true
                   archive_output: false
                   relative_export_path: dist
@@ -37,6 +40,11 @@ jobs:
                   ls -la dist
                   ls -la dist/Web
                   test -f dist/Web/index.html
+                  ls -la dist/Android
+
+            - name: Copy apk to root of Pages output
+              run: |
+                  cp dist/Android/*.apk dist/Web/
 
             - name: Upload Pages artifact
               uses: actions/upload-pages-artifact@v5
