@@ -18,6 +18,10 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
+            # Android exports: set up Android SDK before running godot-export
+            - name: Set up Android SDK
+              uses: android-actions/setup-android@v3
+
             - name: Export game
               id: export
               uses: firebelley/godot-export@v7.0.0
