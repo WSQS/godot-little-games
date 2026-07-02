@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ck7gij8nudrkm"]
+
+[ext_resource type="Script" uid="uid://clpf4gshwjtxc" path="res://games/random-walker/script/random_walker.gd" id="1_5ho43"]
+
+[node name="Main" type="Node2D" unique_id=1696390356]
+script = ExtResource("1_5ho43")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1727301665]
