@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://hgv3hp2xdao6"]
+
+[ext_resource type="Script" uid="uid://cx06b1rpyj7tv" path="res://games/stray/script/vehicle.gd" id="1_2rwq5"]
+
+[node name="Main" type="Node2D" unique_id=1207385149]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=609071250]
+script = ExtResource("1_2rwq5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1006185494]
