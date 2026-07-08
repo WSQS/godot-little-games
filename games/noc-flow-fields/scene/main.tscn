@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cnwm7p4ld2hgs"]
+
+[ext_resource type="Script" uid="uid://ckl65d3uex6lj" path="res://games/noc-flow-fields/script/flow_fields.gd" id="1_gm1r0"]
+
+[node name="Main" type="Node2D" unique_id=277349568]
+script = ExtResource("1_gm1r0")
