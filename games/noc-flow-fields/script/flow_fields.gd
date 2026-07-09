@@ -9,30 +9,37 @@ var time := .0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_viewport().size_changed.connect(generate_field)
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
 	generate_field()
 
 func _process(delta: float) -> void:
 	time += delta * 10
 	generate_field()
-	noise.noise_type = FastNoiseLite.TYPE_PERLIN
 
 func generate_field() -> void:
 	var size = get_viewport().get_visible_rect().size
 	col = ceil(size.x / resolution)
 	row = ceil(size.y / resolution)
 	field = []
-	for c in col:
+	for c in range(col):
 		field.append([])
-		for r in row:
+		for r in range(row):
 			var n = noise.get_noise_3d(c * 10, r * 10, time)
 			var angle = remap(n, -1, 1, 0, TAU)
 			field[c].append(Vector2.from_angle(angle))
 	queue_redraw()
 
 
+func query_flow(position: Vector2) -> Vector2:
+	var index := position / resolution
+	var c = float(index.x)
+	var r = float(index.y)
+	var n = noise.get_noise_3d(c * 10, r * 10, time)
+	return Vector2.from_angle(remap(n, -1, 1, 0, TAU))
+
 func _draw() -> void:
-	for c in col:
-		for r in row:
+	for c in range(col):
+		for r in range(row):
 			var center = Vector2(c * resolution, r * resolution) + Vector2(resolution / 2, resolution / 2)
 			var dir = field[c][r]
 			var diff = dir * resolution * 0.4
