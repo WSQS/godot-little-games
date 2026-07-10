@@ -1,6 +1,7 @@
 extends SteeringAgent
 class_name Boid
 @onready var main: Node2D = $"../.."
+@onready var manager: Node2D = $".."
 
 var r := 8.0
 var alpha := .0
@@ -18,7 +19,25 @@ func _ready() -> void:
 
 func _compute_desired() -> Vector2:
 	alpha += randf_range(-0.05, 0.05)
-	return (offset + Vector2.from_angle(alpha) * radius).rotated(rotation) + main.query_flow(position) * 20
+	var result: Vector2 = (offset + Vector2.from_angle(alpha) * radius).rotated(rotation) + main.query_flow(position) * 20
+	var boids := manager.get_children()
+	var position_sum := Vector2.ZERO
+	var sum_count := 0
+	for boid: Node2D in boids:
+		if boid == self:
+			continue
+		var distance := position - boid.get_position()
+		if distance.length() < 20:
+			result += distance.normalized() * 500 / distance.length()
+			var diff_velocity = boid.velocity - velocity;
+			result += diff_velocity * 20 / distance.length()
+			position_sum += boid.position
+			sum_count += 1
+	if sum_count >= 0:
+		position_sum /= sum_count
+		var distance := position_sum - position
+		result += distance.normalized() * 20
+	return result
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
