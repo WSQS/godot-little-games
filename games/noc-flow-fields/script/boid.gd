@@ -12,7 +12,9 @@ var offset := Vector2(r * 6, 0)
 var radius := r * 2
 
 func _ready() -> void:
-	position = get_viewport().get_visible_rect().size / 2
+	var size := get_viewport().get_visible_rect().size
+	position.x = randf_range(0, size.x)
+	position.y = randf_range(0, size.y)
 
 func _compute_desired() -> Vector2:
 	alpha += randf_range(-0.05, 0.05)
