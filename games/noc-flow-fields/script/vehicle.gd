@@ -3,6 +3,9 @@ extends SteeringBody
 
 var r := 8.0
 var alpha := .0
+var a := r * 2
+var b := r
+var c := r * sqrt(3)
 
 func _ready() -> void:
 	position = get_viewport().get_visible_rect().size / 2
@@ -25,9 +28,9 @@ func _process(delta: float) -> void:
 
 func _draw_body() -> void:
 	var pts = PackedVector2Array([
-		Vector2(r * 2, 0),
-		Vector2(-r, -r * sqrt(3)),
-		Vector2(-r, r * sqrt(3))
+		Vector2(a, 0),
+		Vector2(-b, -c),
+		Vector2(-b, c)
 	])
 	draw_colored_polygon(pts, Color(0.5, 0.5, 0.5))
 	pts.append(pts[0])
