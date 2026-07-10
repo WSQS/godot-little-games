@@ -7,12 +7,15 @@ var a := r * 2
 var b := r
 var c := r * sqrt(3)
 
+var offset := Vector2(r * 6, 0)
+var radius := r * 2
+
 func _ready() -> void:
 	position = get_viewport().get_visible_rect().size / 2
 
 func _compute_desired() -> Vector2:
 	alpha += randf_range(-0.05, 0.05)
-	return (Vector2(r * 6, 0) + Vector2.from_angle(alpha) * r * 2 + main.query_flow(position).rotated(-rotation) * 20).rotated(rotation)
+	return (offset + Vector2.from_angle(alpha) * radius).rotated(rotation) + main.query_flow(position) * 20
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,8 +38,11 @@ func _draw_body() -> void:
 	draw_colored_polygon(pts, Color(0.5, 0.5, 0.5))
 	pts.append(pts[0])
 	draw_polyline(pts, Color.BLACK, 1.0)
-	draw_line(pts[0], pts[0] * 3, Color.BLACK)
-	draw_circle(pts[0] * 3, r * 2, Color.BLACK, false)
-	draw_line(pts[0] * 3, pts[0] * 3 + Vector2.from_angle(alpha) * r * 2, Color.BLACK)
-	draw_line(Vector2(), velocity.rotated(-rotation), Color.BLUE)
+
+func _draw_debug() -> void:
+	draw_line(Vector2(a, 0), offset, Color.BLACK)
+	draw_circle(offset, radius, Color.BLACK, false)
+	draw_line(offset, offset + Vector2.from_angle(alpha) * radius, Color.BLACK)
+	draw_line(Vector2.ZERO, velocity.rotated(-rotation), Color.BLUE)
+	draw_line(offset + Vector2.from_angle(alpha) * radius, offset + Vector2.from_angle(alpha) * radius + main.query_flow(position).rotated(-rotation) * 20, Color.RED)
 	draw_line(velocity.rotated(-rotation), _compute_desired().rotated(-rotation), Color.GREEN)
