@@ -35,6 +35,5 @@ func _draw_body() -> void:
 	draw_line(pts[0], pts[0] * 3, Color.BLACK)
 	draw_circle(pts[0] * 3, r * 2, Color.BLACK, false)
 	draw_line(pts[0] * 3, pts[0] * 3 + Vector2.from_angle(alpha) * r * 2, Color.BLACK)
-	print(velocity, velocity.rotated(-rotation))
 	draw_line(Vector2(), velocity.rotated(-rotation), Color.BLUE)
 	draw_line(velocity.rotated(-rotation), _compute_desired().rotated(-rotation), Color.GREEN)
