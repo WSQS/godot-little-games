@@ -1,5 +1,6 @@
-extends SteeringBody
-@onready var main: Node2D = $".."
+extends SteeringAgent
+class_name Boid
+@onready var main: Node2D = $"../.."
 
 var r := 8.0
 var alpha := .0

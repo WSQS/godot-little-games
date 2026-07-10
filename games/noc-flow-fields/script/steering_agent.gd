@@ -1,5 +1,5 @@
 extends Node2D
-class_name SteeringBody
+class_name SteeringAgent
 
 var velocity := Vector2.ZERO
 
