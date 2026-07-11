@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cnwm7p4ld2hgs"]
+
+[ext_resource type="Script" uid="uid://ckl65d3uex6lj" path="res://games/noc-flow-fields/script/flow_fields.gd" id="1_gm1r0"]
+[ext_resource type="Script" uid="uid://beyj0awoekm50" path="res://games/noc-flow-fields/script/boid_manager.gd" id="2_eiayg"]
+
+[node name="Main" type="Node2D" unique_id=277349568]
+script = ExtResource("1_gm1r0")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=721191356]
+script = ExtResource("2_eiayg")
